@@ -1,16 +1,17 @@
 // Pin Definitions
 #define trigFront 7
 #define echoFront 6
-#define trigLeft 9
-#define echoLeft 8
-#define trigRight 11
-#define echoRight 10
+#define trigLeft 8
+#define echoLeft 9
+#define trigRight 10
+#define echoRight A0
 #define motorLeftForward 3
-#define motorLeftBackward 4
+#define motorLeftBackward A1
 #define motorRightForward 5
-#define motorRightBackward 12
-#define motorEnableLeft 2
-#define motorEnableRight 1
+#define motorRightBackward A2
+#define motorEnableLeft 4
+#define motorEnableRight 12
+
 
 void setup() {
     pinMode(trigFront, OUTPUT);
@@ -46,27 +47,6 @@ long readDistance(int trigPin, int echoPin) {
     return duration * 0.034 / 2; // Convert to cm
 }
 
-void loop() {
-    long distanceFront = readDistance(trigFront, echoFront);
-    long distanceLeft = readDistance(trigLeft, echoLeft);
-    long distanceRight = readDistance(trigRight, echoRight);
-
-    Serial.print("Front: "); Serial.print(distanceFront);
-    Serial.print(" | Left: "); Serial.print(distanceLeft);
-    Serial.print(" | Right: "); Serial.println(distanceRight);
-
-    if (distanceFront < 15) { // Obstacle ahead
-        if (distanceRight > 15) {
-            turnRight();
-        } else if (distanceLeft > 15) {
-            turnLeft();
-        } else {
-            stopMotors(); // No clear path
-        }
-    } else {
-        moveForward(); // No obstacle ahead
-    }
-}
 
 void moveForward() {
     digitalWrite(motorLeftForward, HIGH);
@@ -98,4 +78,27 @@ void stopMotors() {
     digitalWrite(motorLeftBackward, LOW);
     digitalWrite(motorRightForward, LOW);
     digitalWrite(motorRightBackward, LOW);
+}
+
+
+void loop() {
+    long distanceFront = readDistance(trigFront, echoFront);
+    long distanceLeft = readDistance(trigLeft, echoLeft);
+    long distanceRight = readDistance(trigRight, echoRight);
+
+    Serial.print("Front: "); Serial.print(distanceFront);
+    Serial.print(" | Left: "); Serial.print(distanceLeft);
+    Serial.print(" | Right: "); Serial.println(distanceRight);
+
+    if (distanceFront < 15) { // Obstacle ahead
+        if (distanceRight > 15) {
+            turnRight();
+        } else if (distanceLeft > 15) {
+            turnLeft();
+        } else {
+            stopMotors(); // No clear path
+        }
+    } else {
+        moveForward(); // No obstacle ahead
+    }
 }
