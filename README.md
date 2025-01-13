@@ -1,9 +1,11 @@
 # Maze-Solving-Robot
  An Arduino-based maze-solving robot using 3 ultrasonic sensors, an L293D motor driver, and 2 DC motors. The robot detects obstacles, makes navigation decisions, and autonomously traverses mazes. Includes Proteus simulation and Arduino code for easy implementation.
 
+
 Project Overview
 
 This project showcases an autonomous maze-solving robot built using an Arduino Uno, three ultrasonic sensors, an L293D motor driver, and two simple DC motors. The robot navigates a maze by detecting obstacles, making real-time decisions, and turning left or right based on sensor data. It highlights key concepts in robotics, obstacle avoidance, and microcontroller programming.
+
 
 Features
 
@@ -17,7 +19,9 @@ Modular Code Design: Easy to modify or extend functionality.
 
 Simulation Ready: Compatible with Proteus for virtual testing.
 
+
 Components
+
 
 Hardware:
 
@@ -36,6 +40,7 @@ L293D Motor Driver: Controls the two DC motors.
 DC Motors (2): Represent the robot’s left and right wheels.
 
 Power Supply: Provides power to the motors and Arduino.
+
 
 Software:
 
@@ -69,11 +74,11 @@ L293D Motor Driver Connections:
 
 Power Pins:
 
-VCC1 (Pin 16): Connect to Arduino 5V.
+VCC1 (Pin 16): Connect to 5V.
 
 VCC2 (Pin 8): Connect to a higher voltage (e.g., 9V or 12V).
 
-GND (Pins 4, 5, 12, 13): Connect all to Arduino GND.
+GND (Pins 4, 5, 12, 13): Connect all to GND.
 
 Motor Outputs:
 
