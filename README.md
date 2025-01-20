@@ -180,16 +180,6 @@ Test each motor and sensor individually to isolate issues.
 
 Adjust delays and thresholds for optimal performance.
 
-Future Improvements
-
-Implement advanced maze-solving algorithms like flood-fill or A*.
-
-Add more sensors (e.g., IR sensors) for enhanced obstacle detection.
-
-Integrate wireless monitoring and control using Bluetooth or Wi-Fi.
-
-Optimize motor control using PID (Proportional-Integral-Derivative) algorithms.
-
 Acknowledgments
 
 This project was inspired by fundamental robotics concepts and microcontroller programming. Special thanks to the open-source Arduino and Proteus communities for their tools and resources.
